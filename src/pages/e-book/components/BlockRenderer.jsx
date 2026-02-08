@@ -2,12 +2,12 @@ import { useState, useEffect, useMemo } from "react";
 import Icon from "@/components/AppIcon";
 
 const BlockRenderer = ({ block, onEdit, isEditing }) => {
-  const [localContent, setLocalContent] = useState(block?.content);
+  const [, setLocalContent] = useState(block?.content);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     setLocalContent(block?.content);
-  });
+  },[block?.content]);
 
   const processContent = (content) => {
     let processed = content;
@@ -16,6 +16,18 @@ const BlockRenderer = ({ block, onEdit, isEditing }) => {
     }
     return processed;
   };
+
+  const buttonActions = useMemo(() => ({
+    DOWNLOAD_PDF: (link) => {
+        window.open(link, '_blank');
+    },
+    NAVIGATE_TO_LINK: (url) => {
+        window.location.href = url;
+    },
+    OPEN_MODAL: (modalData) => {
+        alert(modalData?.content || 'No content provided for modal.');
+    }
+  }), []);
 
   const renderBlockContent = () => {
     switch (block?.type) {
@@ -124,9 +136,7 @@ const BlockRenderer = ({ block, onEdit, isEditing }) => {
             className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors my-4"
             onClick={() => {
               console.log('Button clicked:', block?.id);
-              for (let i = 0; i < 10000000; i++) {
-                Math.random();
-              }
+              block?.action && buttonActions[block?.action](block?.payload);
             }}
           >
             {block?.content}

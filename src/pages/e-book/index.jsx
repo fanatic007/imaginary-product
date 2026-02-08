@@ -10,11 +10,6 @@ const Ebook = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [draggedBlock, setDraggedBlock] = useState(null);
   const [editingBlock, setEditingBlock] = useState(null);
-  const [renderCount, setRenderCount] = useState(0);
-
-  useEffect(() => {
-    setRenderCount(renderCount + 1);
-  });
 
   useEffect(() => {
     const largeData = generateLargeBlockData(500);
@@ -28,14 +23,6 @@ const Ebook = () => {
     setBlocks(largeData);
     setIsLoading(false);
 
-    const handleScroll = () => {
-      console.log('Scrolling...', window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    
-    setInterval(() => {
-      setBlocks(prev => [...prev]);
-    }, 1000);
   }, []);
 
   const handleDragStart = (blockId) => {
@@ -144,7 +131,7 @@ const Ebook = () => {
               >
                 <BlockRenderer
                   block={block}
-                  onEdit={(content) => handleBlockEdit(block?.id, content)}
+                  onEdit={content => handleBlockEdit(block?.id, content)}
                   isEditing={editingBlock === block?.id}
                 />
               </div>

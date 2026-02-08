@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 export const generateLargeBlockData = (count = 500) => {
   const blocks = [];
 
@@ -114,6 +113,12 @@ console.log(fibonacci(10));`,
     ],
   ];
 
+  const actionCallbacks = [
+    {title : 'Learn More', action: 'NAVIGATE_TO_LINK', payload: 'https://reactjs.org/'},
+    {title : 'Download PDF', action: 'DOWNLOAD_PDF', payload: '/documents/guide.pdf'},
+    {title : 'Open Modal', action: 'OPEN_MODAL', payload: {content: 'This is a modal dialog triggered by the action button.'}},
+  ];
+
   for (let i = 0; i < count; i++) {
     const blockType = i % 15;
 
@@ -199,8 +204,9 @@ console.log(fibonacci(10));`,
         blocks?.push({
           id: `block-${i}`,
           type: "button",
-          content: `Action Button ${i}`,
-          // `TODO: should be able to provide a custom callback, it could open a modal dialog. or an external redirection`
+          content: actionCallbacks?.[i % actionCallbacks?.length].title,
+          action: actionCallbacks?.[i % actionCallbacks?.length]?.action,
+          payload: actionCallbacks?.[i % actionCallbacks?.length]?.payload,
         });
         break;
 
