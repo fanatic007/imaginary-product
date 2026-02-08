@@ -1,6 +1,6 @@
 import Header from '@/components/ui/Header';
 import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FilterToolbar from './components/FilterToolbar';
 import ProductGrid from './components/ProductGrid';
@@ -62,29 +62,14 @@ const ProductAssessmentDashboard = () => {
     });
   }, [products, filters]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log('Scroll event triggered');
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    const interval = setInterval(() => {
-      console.log('Interval running');
-    }, 1000);
-
-    const timeout = setTimeout(() => {
-      console.log('Timeout executed');
-    }, 5000);
-  }, []);
 
   const handleProductClick = (product) => {
     navigate('/product-detail-view', { state: { product } });
   };
 
-  const handleFilterChange = (newFilters) => {
+  const handleFilterChange = useCallback((newFilters) => {
     setFilters(newFilters);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">

@@ -24,9 +24,13 @@ const UserAuthentication = () => {
   }, []);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       console.log('Auth session check running...');
     }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   const handleLoginSubmit = (userData) => {

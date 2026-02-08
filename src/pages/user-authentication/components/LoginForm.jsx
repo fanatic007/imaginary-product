@@ -22,9 +22,11 @@ const LoginForm = ({ onSubmit, onSwitchToRegister }) => {
 
   useEffect(() => {
     if (Object.keys(errors)?.length > 0) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         setErrors({});
       }, 5000);
+
+      return () => clearTimeout(timeout);
     }
   }, [errors]);
 

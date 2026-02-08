@@ -7,7 +7,7 @@ const HeavyVideoPlayer = ({ videoUrl }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const videoRef = React.useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef?.current;
@@ -23,6 +23,11 @@ const HeavyVideoPlayer = ({ videoUrl }) => {
 
     video?.addEventListener('timeupdate', handleTimeUpdate);
     video?.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    return () => {
+      video?.removeEventListener('timeupdate', handleTimeUpdate);
+      video?.removeEventListener('loadedmetadata', handleLoadedMetadata);
+    }
 
   }, []);
 

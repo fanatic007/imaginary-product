@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const AssessmentProgressContext = createContext();
+const AssessmentProgressContext = createContext(null);
 
 export const useAssessmentProgress = () => {
   const context = useContext(AssessmentProgressContext);

@@ -26,7 +26,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
     }
   }, [quantity]);
 
-  const subtotal = (item?.price * quantity)?.toFixed(2);
+  const subtotal = useMemo(() => (item?.price * quantity)?.toFixed(2), [item?.price, quantity]);
 
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-6 p-4 md:p-6 bg-card border border-border rounded-lg hover:shadow-md transition-shadow duration-250">

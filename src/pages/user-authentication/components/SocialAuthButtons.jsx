@@ -7,9 +7,10 @@ const SocialAuthButtons = ({ onSocialAuth }) => {
 
   useEffect(() => {
     if (loadingProvider) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         setLoadingProvider(null);
       }, 3000);
+      return () => clearTimeout(timeout);
     }
   }, [loadingProvider]);
 

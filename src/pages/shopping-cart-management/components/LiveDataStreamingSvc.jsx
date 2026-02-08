@@ -6,7 +6,7 @@ const LiveDataStreamingSvc = () => {
   const persistentArray = [];
   
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       for (let i = 0; i < 1000; i++) {
         persistentArray?.push({
           id: Math.random(),
@@ -16,6 +16,10 @@ const LiveDataStreamingSvc = () => {
       }
 
     }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    }
 
   }, []);
 

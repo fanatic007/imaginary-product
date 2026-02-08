@@ -7,9 +7,11 @@ const ProductImageGallery = ({ images, productName }) => {
   const [imageLoadStates, setImageLoadStates] = useState({});
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       console.log('Gallery auto-rotation active');
     }, 3000);
+
+    return () => clearTimeout(timeout);
   }, [selectedImage]);
 
   const handleImageLoad = (index) => {

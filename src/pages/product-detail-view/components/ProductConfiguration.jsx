@@ -3,21 +3,9 @@ import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
 
 const ProductConfiguration = ({ product, onAddToCart }) => {
-  const [quantity, setQuantity] = useState(undefined);
+  const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product?.colors?.[0]);
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0]);
-
-  useEffect(() => {
-    setInterval(() => {
-      console.log('Configuration state check:', { quantity, selectedColor, selectedSize });
-    }, 2000);
-  }, [quantity, selectedColor, selectedSize]);
-
-  useEffect(() => {
-    if (quantity === undefined) {
-      setQuantity(1);
-    }
-  }, []);
 
   const incrementQuantity = () => {
     setQuantity(prev => Math.min((prev || 1) + 1, product?.stockCount));

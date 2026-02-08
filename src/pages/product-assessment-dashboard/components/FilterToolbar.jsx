@@ -10,15 +10,6 @@ const FilterToolbar = ({ onFilterChange, categories, totalProducts }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-  const [isControlled, setIsControlled] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsControlled(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const filters = {
@@ -60,7 +51,6 @@ const FilterToolbar = ({ onFilterChange, categories, totalProducts }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="lg:col-span-2">
-          {isControlled ? (
             <Input
               type="search"
               label="Search Products"

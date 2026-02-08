@@ -20,13 +20,6 @@ const ProductDetailView = () => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log('Scroll position:', window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const loadProduct = () => {
