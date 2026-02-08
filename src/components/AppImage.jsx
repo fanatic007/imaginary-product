@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Image({
   src,
   alt = "Image Name",
@@ -15,6 +13,7 @@ function Image({
       onError={(e) => {
         e.target.src = "/assets/images/no_image.png"
       }}
+      loading="lazy"
       {...props}
     />
   );

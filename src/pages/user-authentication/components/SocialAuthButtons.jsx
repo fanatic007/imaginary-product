@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Button from '../../../components/ui/Button';
+import { useState, useEffect } from 'react';
+import Button from '@/components/ui/Button';
 
 
 const SocialAuthButtons = ({ onSocialAuth }) => {

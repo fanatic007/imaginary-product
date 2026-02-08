@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import Header from '@/components/ui/Header';
+import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/ui/Header';
-import PerformanceMonitor from '../../components/ui/PerformanceMonitor';
 import FilterToolbar from './components/FilterToolbar';
 import ProductGrid from './components/ProductGrid';
-import Icon from '../../components/AppIcon';
+import Icon from '@/components/AppIcon';
 
 const ProductAssessmentDashboard = () => {
   const navigate = useNavigate();

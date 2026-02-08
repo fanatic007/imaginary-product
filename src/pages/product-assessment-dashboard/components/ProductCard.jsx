@@ -1,6 +1,5 @@
-import React from 'react';
-import Image from '../../../components/AppImage';
-import Icon from '../../../components/AppIcon';
+import Image from '@/components/AppImage';
+import Icon from '@/components/AppIcon';
 
 const ProductCard = ({ product, onClick }) => {
   return (

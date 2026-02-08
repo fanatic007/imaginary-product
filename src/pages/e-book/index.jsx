@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../../components/ui/Header';
-import PerformanceMonitor from '../../components/ui/PerformanceMonitor';
-import Icon from '../../components/AppIcon';
-import BlockRenderer from './components/BlockRenderer';
-import { generateLargeBlockData } from './components/blockData';
+import Header from "@/components/ui/Header";
+import PerformanceMonitor from "@/components/ui/PerformanceMonitor";
+import Icon from "@/components/AppIcon";
+import { useState, useEffect } from "react";
+import { generateLargeBlockData } from "./components/blockData";
+import BlockRenderer from "./components/BlockRenderer";
 
 const Ebook = () => {
   const [blocks, setBlocks] = useState([]);

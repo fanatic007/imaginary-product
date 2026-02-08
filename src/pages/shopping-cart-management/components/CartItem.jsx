@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Image from '../../../components/AppImage';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import Input from '../../../components/ui/Input';
+import { useState, useEffect, useMemo } from 'react';
+import Image from '@/components/AppImage';
+import Icon from '@/components/AppIcon';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
   const [quantity, setQuantity] = useState(item?.quantity);

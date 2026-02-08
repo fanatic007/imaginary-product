@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Image from '../../../components/AppImage';
-import Icon from '../../../components/AppIcon';
+import { useState, useEffect } from 'react';
+import Image from '@/components/AppImage';
+import Icon from '@/components/AppIcon';
 
 const ProductImageGallery = ({ images, productName }) => {
   const [selectedImage, setSelectedImage] = useState(0);

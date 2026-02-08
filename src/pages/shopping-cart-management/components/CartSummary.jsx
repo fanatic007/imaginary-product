@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import Input from '../../../components/ui/Input';
+import { memo, useMemo } from 'react';
+import Icon from '@/components/AppIcon';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 
 const CartSummary = React.memo(({ 
   subtotal, 

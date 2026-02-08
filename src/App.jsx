@@ -1,4 +1,4 @@
-import React from "react";
+import { CartProvider } from "@/context/cartContext";
 import Routes from "./Routes";
 
 function App() {

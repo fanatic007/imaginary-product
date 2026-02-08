@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Select from '../../../components/ui/Select';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+import Button from "@/components/ui/Button";
+import Select from "@/components/ui/Select";
+import Icon from "@/components/AppIcon";
+import { debounceFunction } from "my-lib";
+import Input from "@/components/ui/Input";
+import { useState, useEffect } from "react";
 
 const FilterToolbar = ({ onFilterChange, categories, totalProducts }) => {
   const [searchTerm, setSearchTerm] = useState('');

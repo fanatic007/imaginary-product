@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Icon from '../../../components/AppIcon';
+import { useState, useEffect, useMemo } from "react";
+import Icon from "@/components/AppIcon";
 
 const BlockRenderer = ({ block, onEdit, isEditing }) => {
   const [localContent, setLocalContent] = useState(block?.content);

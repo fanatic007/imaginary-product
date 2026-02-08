@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Icon from '../AppIcon';
+import Icon from '@/components/AppIcon';
 
 const Header = () => {
   const location = useLocation();

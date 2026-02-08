@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Icon from '../AppIcon';
+import { Component } from 'react';
+import Icon from '@/components/AppIcon';
 
 class ErrorBoundary extends Component {
   constructor(props) {

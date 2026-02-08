@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-
-import Header from '../../components/ui/Header';
-import PerformanceMonitor from '../../components/ui/PerformanceMonitor';
-import AssessmentProgressIndicator from '../../components/ui/AssessmentProgress';
-import { ErrorBoundaryStatusIndicator } from '../../components/ui/ErrorBoundaryStatus';
-import ProductImageGallery from './components/ProductImageGallery';
-import ProductInfo from './components/ProductInfo';
-import ProductConfiguration from './components/ProductConfiguration';
-import ProductSpecifications from './components/ProductSpecifications';
-import RelatedProducts from './components/RelatedProducts';
-import CustomerReviews from './components/CustomerReviews';
-import Icon from '../../components/AppIcon';
-
+import AssessmentProgressIndicator from "@/components/ui/AssessmentProgress";
+import { ErrorBoundaryStatusIndicator } from "@/components/ui/ErrorBoundaryStatus";
+import Header from "@/components/ui/Header";
+import PerformanceMonitor from "@/components/ui/PerformanceMonitor";
+import useCart from "@/context/cartContext";
+import Icon  from "@/components/AppIcon";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import CustomerReviews from "./components/CustomerReviews";
+import ProductConfiguration from "./components/ProductConfiguration";
+import ProductImageGallery from "./components/ProductImageGallery";
+import ProductInfo from "./components/ProductInfo";
+import ProductSpecifications from "./components/ProductSpecifications";
+import RelatedProducts from "./components/RelatedProducts";
 
 const ProductDetailView = () => {
   const navigate = useNavigate();

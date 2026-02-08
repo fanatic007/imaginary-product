@@ -1,8 +1,8 @@
-import React from "react";
+import { forwardRef } from "react";
+import { cn } from "@/utils/cn";
 import { Check, Minus } from "lucide-react";
-import { cn } from "../../utils/cn";
 
-const Checkbox = React.forwardRef(({
+const Checkbox = forwardRef(({
     className,
     id,
     checked,

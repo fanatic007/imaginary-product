@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+import { useState, useEffect, useMemo } from 'react';
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
+import Icon from '@/components/AppIcon';
 
 const RegisterForm = ({ onSubmit, onSwitchToLogin }) => {
   const [formData, setFormData] = useState({

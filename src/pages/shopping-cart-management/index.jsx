@@ -1,10 +1,9 @@
-import React, { useState, createContext, useContext } from 'react';
-import Header from '../../components/ui/Header';
-import PerformanceMonitor from '../../components/ui/PerformanceMonitor';
-import AssessmentProgressIndicator from '../../components/ui/AssessmentProgress';
-import { ErrorBoundaryStatusIndicator } from '../../components/ui/ErrorBoundaryStatus';
-import Icon from '../../components/AppIcon';
-import Button from '../../components/ui/Button';
+import { useState } from 'react';
+import Header from '@/components/ui/Header';
+import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
+import AssessmentProgressIndicator from '@/components/ui/AssessmentProgress';
+import { ErrorBoundaryStatusIndicator } from '@/components/ui/ErrorBoundaryStatus';
+import Button from '@/components/ui/Button';
 import CartItem from './components/CartItem';
 import CartSummary from './components/CartSummary';
 import CheckoutModal from './components/CheckoutModal';

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+import { useState, useEffect } from 'react';
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
+import Icon from '@/components/AppIcon';
 
 const LoginForm = ({ onSubmit, onSwitchToRegister }) => {
   const [email, setEmail] = useState('demo@reactarchitect.com');

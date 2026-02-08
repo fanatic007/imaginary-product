@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
+import { useState, useEffect } from 'react';
+import Icon from '@/components/AppIcon';
+import Button from '@/components/ui/Button';
 
 const APIUsecaseDemo = () => {
   const [users, setUsers] = useState([]);

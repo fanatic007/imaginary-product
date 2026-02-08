@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import Header from '../../components/ui/Header';
-import PerformanceMonitor from '../../components/ui/PerformanceMonitor';
-import AssessmentProgressIndicator from '../../components/ui/AssessmentProgress';
-import { ErrorBoundaryStatusIndicator } from '../../components/ui/ErrorBoundaryStatus';
+import Header from '@/components/ui/Header';
+import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
+import AssessmentProgressIndicator from '@/components/ui/AssessmentProgress';
+import { ErrorBoundaryStatusIndicator } from '@/components/ui/ErrorBoundaryStatus';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import SocialAuthButtons from './components/SocialAuthButtons';
 import AuthSuccessModal from './components/AuthSuccessModal';
-import Icon from '../../components/AppIcon';
+import Icon from '@/components/AppIcon';
 
 const UserAuthentication = () => {
   const [authMode, setAuthMode] = useState('login');

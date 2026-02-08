@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Icon from '../../../components/AppIcon';
+import { useEffect } from "react";
+import Icon from "@/components/AppIcon";
 
 const LiveDataStreamingSvc = () => {
 

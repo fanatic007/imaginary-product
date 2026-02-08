@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import Icon from '../../../components/AppIcon';
+import { useMemo } from 'react';
+import Icon from '@/components/AppIcon';
 
 const ProductInfo = ({ product }) => {
   const price = useMemo(() => product?.price, [product?.price]);
