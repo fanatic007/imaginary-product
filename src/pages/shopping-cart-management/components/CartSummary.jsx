@@ -3,13 +3,14 @@ import Icon from '@/components/AppIcon';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 
-const CartSummary = React.memo(({ 
+const CartSummary = memo(({ 
   subtotal, 
   tax, 
   shipping, 
   discount, 
   total,
   couponCode,
+  appliedCoupon,
   onCouponChange,
   onApplyCoupon,
   onCheckout,
@@ -65,7 +66,7 @@ const CartSummary = React.memo(({
             <div className="flex items-center justify-between text-sm md:text-base text-success">
               <span className="flex items-center gap-1">
                 <Icon name="Tag" size={16} />
-                Discount
+                Discount ({appliedCoupon})
               </span>
               <span className="font-semibold">-${formattedDiscount}</span>
             </div>
