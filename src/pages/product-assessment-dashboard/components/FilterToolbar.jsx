@@ -3,13 +3,18 @@ import Select from "@/components/ui/Select";
 import Icon from "@/components/AppIcon";
 import { debounceFunction } from "my-lib";
 import Input from "@/components/ui/Input";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const FilterToolbar = ({ onFilterChange, categories, totalProducts }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+
+  const debouncedOnFilterChange = useMemo(
+    () => debounceFunction(onFilterChange, 300),
+    [onFilterChange]
+  );
 
   useEffect(() => {
     const filters = {
@@ -18,8 +23,8 @@ const FilterToolbar = ({ onFilterChange, categories, totalProducts }) => {
       minPrice: minPrice ? parseFloat(minPrice) : null,
       maxPrice: maxPrice ? parseFloat(maxPrice) : null
     };
-    onFilterChange(filters);
-  }, [searchTerm, selectedCategory, minPrice, maxPrice, onFilterChange]);
+        debouncedOnFilterChange(filters);
+  }, [searchTerm, selectedCategory, minPrice, maxPrice, debouncedOnFilterChange]);
 
   const handleReset = () => {
     setSearchTerm('');
@@ -51,21 +56,13 @@ const FilterToolbar = ({ onFilterChange, categories, totalProducts }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="lg:col-span-2">
-            <Input
+          <Input
               type="search"
               label="Search Products"
               placeholder="Search by name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e?.target?.value)}
             />
-          ) : (
-            <Input
-              type="search"
-              label="Search Products"
-              placeholder="Search by name..."
-              defaultValue={searchTerm}
-            />
-          )}
         </div>
 
         <Select
