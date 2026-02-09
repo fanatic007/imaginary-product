@@ -21,7 +21,7 @@ const ProductDetailView = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
 
-  useEffect(() => {
+ useEffect(() => {
     const loadProduct = () => {
       try {
         // Simulate product data loading
@@ -84,7 +84,8 @@ const ProductDetailView = () => {
             "Microphone": "Dual beamforming microphones",
             "Codec Support": "AAC, SBC",
             "Voice Assistant": "Siri, Google Assistant compatible"
-          }
+          },
+          ...location?.state?.product
         };
 
         setTimeout(() => {
@@ -97,13 +98,14 @@ const ProductDetailView = () => {
     };
 
     loadProduct();
-  }, [location?.search]);
+  }, [location?.search, location?.state?.product]);
 
-  const handleAddToCart = (configuredProduct) => {
-    console.log('Adding to cart:', configuredProduct);
-    // Simulate cart addition
+  const { addToCart } = useCart();
+
+  const handleAddToCart = useCallback((configuredProduct) => {
+    addToCart(configuredProduct);
     alert(`Added ${configuredProduct?.quantity}x ${configuredProduct?.name} to cart`);
-  };
+  }, [addToCart]);
 
   const tabs = [
   { id: 'overview', label: 'Overview', icon: 'Info' },

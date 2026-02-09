@@ -59,3 +59,12 @@ export function pickProperties(obj, properties) {
 export function omitProperties(obj, properties) {
   return _.omit(obj, properties);
 }
+
+export function setLocalStorageItem(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+export function getLocalStorageItem(key) {
+  const value = localStorage.getItem(key);
+  return value ? JSON.parse(value) : null;
+}
