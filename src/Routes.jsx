@@ -11,7 +11,7 @@ import { AssessmentProgressProvider } from '@/components/ui/AssessmentProgress';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ErrorBoundary>
       <AssessmentProgressProvider>
       <ScrollToTop />
