@@ -6,6 +6,8 @@ import eslint from "vite-plugin-eslint";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // IMPORTANT: update this if the repo name changes so GitHub Pages asset URLs are correct
+  base: "/imaginary-product/",
   resolve: {
     alias: {
       "@": "/src",
