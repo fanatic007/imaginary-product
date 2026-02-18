@@ -10,6 +10,26 @@
   <!-- Use relative paths so GitHub Pages serves these from /imaginary-product/ -->
   <link rel="icon" href="favicon.ico" />
   <link rel="manifest" href="manifest.json" />
+
+  <script>
+    // GitHub Pages SPA support (hash-transport + clean URL).
+    // 1) 404.html redirects deep links to /imaginary-product/#/some/route?x=1
+    // 2) This script runs before React mounts and turns that fragment into a real
+    //    pathname/search via history.replaceState so BrowserRouter can match it.
+    (function (l) {
+      if (!l.hash || l.hash.length < 2) return;
+      if (l.hash[1] !== '/') return;
+
+      var fragment = l.hash.slice(1); // starts with '/'
+      var qIndex = fragment.indexOf('?');
+      var routePath = qIndex >= 0 ? fragment.slice(0, qIndex) : fragment;
+      var query = qIndex >= 0 ? fragment.slice(qIndex) : '';
+
+      // l.pathname is the repo base (e.g. '/imaginary-product/')
+      var basePath = l.pathname.endsWith('/') ? l.pathname.slice(0, -1) : l.pathname;
+      window.history.replaceState(null, '', basePath + routePath + query);
+    })(window.location);
+  </script>
   
   <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Freactarchi3656back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.13"></script>
   <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
